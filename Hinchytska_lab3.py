@@ -61,7 +61,9 @@ def polynomial(x, coef):
     return y_poly
 
 def variance(y_true, y_pred):
-    return np.mean((y_true - y_pred)**2)
+    
+    n = len(y_true) - 1
+    return np.sum((y_true - y_pred)**2) / (n + 1)
 
 
 #  оптимальний степінь полінома
