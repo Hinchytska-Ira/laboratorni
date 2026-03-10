@@ -31,7 +31,7 @@ def newton_polynomial(x_val, x_data, coef):
 a = min(dataset_size)
 b = max(dataset_size)
 
-n = 5  # кількість вузлів для табуляції
+n = 5  
 h = (b - a) / (n - 1)
 
 x_tab = np.array([a + i*h for i in range(n)])
@@ -63,7 +63,7 @@ predicted_time = newton_polynomial(x_target, x_data, coeffs)
 print(f"\nПрогноз часу для 120000: {predicted_time:.2f} сек")
 
 
-#  ПРОТабУЛЯЦІЯ ФУНКЦІЇ, ПОЛІНОМА І ПОХИБКИ
+# ТабУЛЯЦІЯ ФУНКЦІЇ, ПОЛІНОМА І ПОХИБКИ
 
 
 x_plot = np.linspace(a, b, 500)
