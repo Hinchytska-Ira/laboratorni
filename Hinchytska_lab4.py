@@ -17,7 +17,7 @@ def derivative(h):
 true_value = df(x0)
 
 
-h_values = np.logspace(-6, -1, 100) 
+h_values = np.logspace(-20, 3, 100) 
 errors = []
 
 for h in h_values:
@@ -42,7 +42,7 @@ plt.grid()
 plt.show()
 
 
-h = 0.001  
+h = 0.001
 
 
 y_h = (f(x0 + h) - f(x0 - h)) / (2 * h)
@@ -82,7 +82,7 @@ print("Порядок точності p:", p)
 print("Похибка R3:", R3)
 
 
-h_vals_small = np.logspace(-4, -2, 50)  
+h_vals_small = np.logspace(-6, -1, 100)  
 errors_basic = []
 errors_rr = []
 errors_aitken = []
@@ -96,11 +96,11 @@ for h in h_vals_small:
     y_rr = y_h + (y_h - y_2h)/3
 
     # Ейткен
-    denom = y_4h - 2*y_2h + y_h
+    denom =  2*y_2h - (y_4h + y_h)
     if abs(denom) < 1e-12:
         y_e = y_h
     else:
-        y_e = y_h - ((y_2h - y_h)**2) / denom
+        y_e = ((y_2h**2) -  y_4h * y_h )/ denom
 
     errors_basic.append(abs(y_h - true_value))
     errors_rr.append(abs(y_rr - true_value))
